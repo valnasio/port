@@ -5,27 +5,68 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Experiências Profissionais</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      padding: 2rem;
+      padding: 0;
       background-color: #0a0a0a;
       color: #00ff88;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      position: relative;
+      overflow-x: hidden;
     }
 
-    h1 {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-
-    .empresa {
+    header {
+      background-color: #111;
+      color: #00ff88;
+      padding: 1rem 2rem;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 10;
       display: flex;
-      background-color: #121212;
-      margin-bottom: 2rem;
-      padding: 1rem;
-      border-radius: 10px;
-      align-items: flex-start;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #00ff88;
     }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+
+    header a {
+      background-color: #00ff88;
+      color: #0a0a0a;
+      padding: 0.5rem 1rem;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    header a:hover {
+      background-color: #00cc66;
+    }
+
+    .container {
+      padding: 7rem 2rem 2rem; /* Top padding para não esconder o conteúdo atrás do header fixo */
+      position: relative;
+      z-index: 1;
+    }
+
+  .empresa {
+  display: flex;
+  background-color: rgba(20, 20, 20, 0.6); /* preto com 60% de opacidade */
+  margin-bottom: 2rem;
+  padding: 1rem;
+  border-radius: 10px;
+  align-items: flex-start;
+  backdrop-filter: blur(4px);
+}
 
     .empresa img {
       width: 460px;
@@ -56,75 +97,186 @@
     li {
       margin-bottom: 0.4rem;
     }
+
+    canvas#particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
   </style>
 </head>
 <body>
-  <h1>Experiências Profissionais</h1>
+  <canvas id="particles"></canvas>
+  <header>
+    <h1>Experiências Profissionais</h1>
+    <a href="index.html">Home</a>
+  </header>
 
-  <div class="empresa">
-    <img src="honda.jpg" alt="Logo da Empresa 1">
-    <div class="descricao">
-      <h2>Grupo Clube - Honda</h2>
-      <p>Empresa de vendas de motocicletas e carros Honda e seminovos diversos.</p>
-      <p class="tempo">Abril de 2024 – Até o momento</p>
-      <ul>
-        <li>Atendimento e suporte técnico a usuários do sistema DMS e sistemas internos da Honda.</li>
-        <li>Criação de relatórios personalizados e automatização de tarefas.</li>
-        <li>Gerenciamento de infraestrutura física e em cloud.</li>
-      </ul>
-      
-    </div>
-  </div>
-  <!-- Segunda empresa -->
-  <div class="empresa">
-     <img src="unef.jpg" alt="Logo da Empresa 1">
-    <div class="descricao">
-      <h2>Grupo Nobre </h2>
-      <p>Grupo de empresas na área de Ensino, Saúde e Esporte.</p>
-      <p class="tempo">Agosto de 2021 – Abril de 2024</p>
-      <ul>
-        <li>Atendimento e suporte técnico a usuários do sistema ERP, suporte HelpDesk e FildService.</li>
-        <li>Criação de documentação.</li>
-        <li>Gerenciamento de infraestrutura física.</li>
-      </ul>
-      
-    </div>
-  </div>
-  
-  <!-- Terceira empresa -->
-  
-  <div class="empresa">
-     <img src="inputec.jpg" alt="Logo da Empresa 1">
-    <div class="descricao">
-      <h2>Inputec </h2>
-      <p>Empresa de TI especializada em terceirização de serviços.</p>
-      <p class="tempo">Abril de 2021 – Agosto de 2024</p>
-      <ul>
-        <li>Atendimento e suporte técnico a usuários do sistema ERP, suporte HelpDesk e FildService.</li>
-        <li>Criação de documentação.</li>
-        <li>Gerenciamento de infraestrutura física.</li>
-      </ul>
-      
-    </div>
-    </div>
-
-     <!-- Quarta empresa -->
-     
-     <div class="empresa">
-      <img src="unirb.jpg" alt="Logo da Empresa 1">
+  <div class="container">
+    <div class="empresa">
+      <img src="honda.jpg" alt="Logo da Empresa 1">
       <div class="descricao">
-      <h2>UNIRB - Centro Universitário  </h2>
-      <p>Instituição de ensino superior que oferece cursos presenciais e a distância.</p>
-      <p class="tempo"> Agosto de 2020 – Abril de 2021</p>
-      <ul>
-        <li>Atendimento e suporte técnico a usuários do sistema ERP, suporte HelpDesk e FildService.</li>
-        <li>Criação de documentação.</li>
-        <li>Gerenciamento de infraestrutura física.</li>
-      </ul>
-      
+        <h2>Grupo Clube - Honda</h2>
+        <p>Analista de Sistemas</p>
+        <p>Empresa de vendas de motocicletas e carros Honda e seminovos diversos.</p>
+        <p class="tempo">Abril de 2024 – Até o momento</p>
+        <ul>
+          <li>Atendimento e suporte técnico a usuários do sistema DMS e sistemas internos da Honda.</li>
+          <li>Criação de relatórios personalizados e automatização de tarefas.</li>
+          <li>Gerenciamento de infraestrutura física e em cloud.</li>
+        </ul>
+      </div>
     </div>
-     </div>
-     
-  <!-- Você pode copiar e colar o bloco acima para outras empresas -->
+
+    <div class="empresa">
+      <img src="unef.jpg" alt="Logo da Empresa 2">
+      <div class="descricao">
+        <h2>Grupo Nobre</h2>
+        <p>Assistente de T.I</p>
+        <p>Grupo de empresas na área de Ensino, Saúde e Esporte.</p>
+        <p class="tempo">Agosto de 2021 – Abril de 2024</p>
+        <ul>
+          <li>Atendimento e suporte técnico a usuários do sistema ERP, suporte HelpDesk e FieldService.</li>
+          <li>Criação de documentação.</li>
+          <li>Gerenciamento de infraestrutura física.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="empresa">
+      <img src="inputec.jpg" alt="Logo da Empresa 3">
+      <div class="descricao">
+        <h2>Inputec</h2>
+        <p>Assistente de T.I</p>
+        <p>Empresa de TI especializada em terceirização de serviços.</p>
+        <p class="tempo">Abril de 2021 – Agosto de 2024</p>
+        <ul>
+          <li>Atendimento e suporte técnico a usuários do sistema ERP, suporte HelpDesk e FieldService.</li>
+          <li>Criação de documentação.</li>
+          <li>Gerenciamento de infraestrutura física.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="empresa">
+      <img src="unirb.jpg" alt="Logo da Empresa 4">
+      <div class="descricao">
+        <h2>UNIRB - Centro Universitário</h2>
+        <p>Suporte de T.I</p>
+        <p>Instituição de ensino superior que oferece cursos presenciais e a distância.</p>
+        <p class="tempo">Agosto de 2020 – Abril de 2021</p>
+        <ul>
+          <li>Atendimento e suporte técnico a usuários do sistema ERP, suporte HelpDesk e FieldService.</li>
+          <li>Criação de documentação.</li>
+          <li>Gerenciamento de infraestrutura física.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="empresa">
+      <img src="yroshi.png" alt="Logo da Empresa 5">
+      <div class="descricao">
+        <h2>Yroshy Informática</h2>
+        <p>Técnico em Informática</p>
+        <p>Empresa de vendas e manutenção em equipamentos de informática.</p>
+        <p class="tempo">Agosto de 2014 – Fevereiro de 2020</p>
+        <ul>
+          <li>Manutenção em equipamentos de informática.</li>
+          <li>Atendimento ao cliente.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+    <div class="empresa">
+      <img src="barella.png" alt="Logo da Empresa 5">
+      <div class="descricao">
+        <h2>Barella Informática</h2>
+        <p>Técnico em Informática</p>
+        <p>Empresa de vendas e manutenção em equipamentos de informática.</p>
+        <p class="tempo">Fevereiro de 2013 – Janeiro de 2014</p>
+        <ul>
+          <li>Manutenção em equipamentos de informática.</li>
+          <li>Venda de equipamentos e acessórios.</li>
+          <li>Atendimento ao cliente.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+    <div class="empresa">
+      <img src="asus.png" alt="Logo da Empresa 5">
+      <div class="descricao">
+        <h2>Mega Asus Informática</h2>
+        <p>Jovem Aprendiz</p>
+        <p>Empresa de vendas e manutenção em equipamentos de informática.</p>
+        <p class="tempo">Janeiro de 2011 – Janeiro 2013</p>
+        <ul>
+          <li>Auxiliar de equipe técnica.</li>
+          <li>Auxiliar de estoque.</li>
+          <li>Conferente de compras.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+  <script>
+    // Partículas simples animadas no fundo
+    const canvas = document.getElementById('particles');
+    const ctx = canvas.getContext('2d');
+    const particles = [];
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+
+    for (let i = 0; i < 80; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: Math.random() * 2 + 1,
+        dx: (Math.random() - 0.5) * 0.8,
+        dy: (Math.random() - 0.5) * 0.8
+      });
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let p of particles) {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = '#00ff88';
+        ctx.fill();
+
+        p.x += p.dx;
+        p.y += p.dy;
+
+        if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+        if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+      }
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+  </script>
 </body>
 </html>
