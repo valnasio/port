@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfólio Rafael Valnásio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      overflow: hidden;
+      background: black;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .box {
+      background-color: rgba(255, 255, 255, 0.08);
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+      text-align: center;
+      backdrop-filter: blur(10px);
+    }
+
+    .foto {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #00ff88;
+      box-shadow: 0 0 10px #00ff88;
+      margin-bottom: 1rem;
+    }
+
+    .nome {
+      font-size: 2em;
+      font-weight: bold;
+      color: #00ff88;
+      margin-bottom: 0.5rem;
+    }
+
+    .titulo {
+      font-size: 1.1em;
+      color: #aaffcc;
+      margin-bottom: 2rem;
+    }
+
+    a {
+      background-color: #00ff88;
+      color: #0b0b0b;
+      padding: 1rem 2rem;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    a:hover {
+      background-color: #00cc66;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="matrix"></canvas>
+
+  <div class="content">
+    <div class="box">
+      <img src="foto.png" alt="Foto de Rafael Valnásio" class="foto" />
+      <div class="nome">Rafael Valnásio</div>
+      <div class="titulo">Analista de Sistemas | Analista de Infraestrutura</div>
+      <a href="https://github.com/valnasio">Meu GitHub</a>
+      <a href="https://github.com/valnasio">Meu Linkedin</a>
+      <a href="https://www.linkedin.com/in/valnasio/">Experiências</a>
+      
+    </div>
+  </div>
+
+  <script>
+    const canvas = document.getElementById('matrix');
+    const ctx = canvas.getContext('2d');
+
+    canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth;
+
+    const letters = "01";
+    const fontSize = 16;
+    const columns = canvas.width / fontSize;
+    const drops = Array.from({ length: columns }, () => Math.random() * canvas.height / fontSize);
+
+    function draw() {
+      ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.fillStyle = "#00ff88";
+      ctx.font = fontSize + "px monospace";
+
+      for (let i = 0; i < drops.length; i++) {
+        const text = letters[Math.floor(Math.random() * letters.length)];
+        const x = i * fontSize;
+        const y = drops[i] * fontSize;
+
+        ctx.fillText(text, x, y);
+
+        if (y > canvas.height && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+
+        drops[i] += 0.5 + Math.sin(Date.now() * 0.001 + i) * 0.2;
+      }
+    }
+
+    setInterval(draw, 33);
+    window.addEventListener('resize', () => location.reload());
+  </script>
+</body>
+</html>
