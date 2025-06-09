@@ -32,7 +32,8 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      height: 100vh;
+      padding: 2rem;
+      min-height: 100vh;
     }
 
     .box {
@@ -42,6 +43,8 @@
       box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
       text-align: center;
       backdrop-filter: blur(10px);
+      max-width: 600px;
+      width: 100%;
     }
 
     .foto {
@@ -67,7 +70,7 @@
       margin-bottom: 2rem;
     }
 
-    a {
+    .box a {
       background-color: #00ff88;
       color: #0b0b0b;
       padding: 1rem 2rem;
@@ -75,10 +78,50 @@
       border-radius: 5px;
       font-weight: bold;
       transition: background 0.3s;
+      margin: 0.5rem;
+      display: inline-block;
     }
 
-    a:hover {
+    .box a:hover {
       background-color: #00cc66;
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    /* Responsividade */
+    @media (max-width: 480px) {
+      .box {
+        padding: 1.5rem;
+      }
+
+      .foto {
+        width: 120px;
+        height: 120px;
+      }
+
+      .nome {
+        font-size: 1.5em;
+      }
+
+      .titulo {
+        font-size: 1em;
+      }
+
+      .box a {
+        padding: 0.8rem 1.2rem;
+        font-size: 0.9em;
+        width: 100%;
+        max-width: 90%;
+      }
+
+      .links {
+        flex-direction: column;
+        align-items: center;
+      }
     }
   </style>
 </head>
@@ -90,49 +133,60 @@
       <img src="foto.png" alt="Foto de Rafael Valnásio" class="foto" />
       <div class="nome">Rafael Valnásio</div>
       <div class="titulo">Analista de Sistemas | Analista de Infraestrutura</div>
-      <a href="https://github.com/valnasio">Meu GitHub</a>
-      <a href="https://www.linkedin.com/in/valnasio/">Meu Linkedin</a>
-      <a href="experiencias.html">Experiências</a>
-      
+      <div class="links">
+        <a href="https://github.com/valnasio">Meu GitHub</a>
+        <a href="https://github.com/valnasio">Meu Linkedin</a>
+        <a href="experiencias.html">Experiências</a>
+      </div>
     </div>
   </div>
 
-  <script>
-    const canvas = document.getElementById('matrix');
-    const ctx = canvas.getContext('2d');
+<script>
+  const canvas = document.getElementById('matrix');
+  const ctx = canvas.getContext('2d');
 
-    canvas.height = window.innerHeight;
+  const letters = "01";
+  const fontSize = 16;
+  let drops = [];
+
+  function resizeCanvas() {
     canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
 
-    const letters = "01";
-    const fontSize = 16;
-    const columns = canvas.width / fontSize;
-    const drops = Array.from({ length: columns }, () => Math.random() * canvas.height / fontSize);
+    const columns = Math.floor(canvas.width / fontSize);
+    drops = Array.from({ length: columns }, () => Math.random() * canvas.height / fontSize);
+  }
 
-    function draw() {
-      ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
+  resizeCanvas(); // inicializa ao carregar
 
-      ctx.fillStyle = "#00ff88";
-      ctx.font = fontSize + "px monospace";
+  window.addEventListener('resize', () => {
+    resizeCanvas();
+  });
 
-      for (let i = 0; i < drops.length; i++) {
-        const text = letters[Math.floor(Math.random() * letters.length)];
-        const x = i * fontSize;
-        const y = drops[i] * fontSize;
+  function draw() {
+    ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-        ctx.fillText(text, x, y);
+    ctx.fillStyle = "#00ff88";
+    ctx.font = fontSize + "px monospace";
 
-        if (y > canvas.height && Math.random() > 0.975) {
-          drops[i] = 0;
-        }
+    for (let i = 0; i < drops.length; i++) {
+      const text = letters[Math.floor(Math.random() * letters.length)];
+      const x = i * fontSize;
+      const y = drops[i] * fontSize;
 
-        drops[i] += 0.5 + Math.sin(Date.now() * 0.001 + i) * 0.2;
+      ctx.fillText(text, x, y);
+
+      if (y > canvas.height && Math.random() > 0.975) {
+        drops[i] = 0;
       }
-    }
 
-    setInterval(draw, 33);
-    window.addEventListener('resize', () => location.reload());
-  </script>
+      drops[i] += 0.5 + Math.sin(Date.now() * 0.001 + i) * 0.2;
+    }
+  }
+
+  setInterval(draw, 33);
+</script>
+
 </body>
 </html>
