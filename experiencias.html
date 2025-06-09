@@ -53,20 +53,20 @@
     }
 
     .container {
-      padding: 7rem 2rem 2rem; /* Top padding para não esconder o conteúdo atrás do header fixo */
+      padding: 7rem 2rem 2rem;
       position: relative;
       z-index: 1;
     }
 
-  .empresa {
-  display: flex;
-  background-color: rgba(20, 20, 20, 0.6); /* preto com 60% de opacidade */
-  margin-bottom: 2rem;
-  padding: 1rem;
-  border-radius: 10px;
-  align-items: flex-start;
-  backdrop-filter: blur(4px);
-}
+    .empresa {
+      display: flex;
+      background-color: rgba(20, 20, 20, 0.6);
+      margin-bottom: 2rem;
+      padding: 1rem;
+      border-radius: 10px;
+      align-items: flex-start;
+      backdrop-filter: blur(4px);
+    }
 
     .empresa img {
       width: 460px;
@@ -107,6 +107,10 @@
       height: 100%;
       pointer-events: none;
     }
+
+    .descricao p strong {
+      color: #ffffff;
+    }
   </style>
 </head>
 <body>
@@ -117,126 +121,113 @@
   </header>
 
   <div class="container">
+
     <div class="empresa">
-      <img src="honda.jpg" alt="Logo da Empresa 1">
+      <img src="honda.jpg" alt="Logo da Honda">
       <div class="descricao">
         <h2>Grupo Clube - Honda</h2>
-        <p>Analista de Sistemas</p>
-        <p>Empresa de vendas de motocicletas e carros Honda e seminovos diversos.</p>
-        <p class="tempo">Abril de 2024 – Até o momento</p>
+        <p><strong>Cargo:</strong> Analista de Sistemas</p>
+        <p>Concessionária de motocicletas, automóveis e seminovos da marca Honda.</p>
+        <p class="tempo">Abril de 2024 – Atualmente</p>
         <ul>
-          <li>Atendimento e suporte técnico a usuários do sistema DMS e sistemas internos da Honda.</li>
-          <li>Criação de relatórios personalizados e automatização de tarefas.</li>
-          <li>Gerenciamento de infraestrutura física e em cloud.</li>
+          <li>Suporte técnico aos usuários do sistema DMS e plataformas internas da Honda.</li>
+          <li>Criação de relatórios personalizados e automação de processos.</li>
+          <li>Gerenciamento da infraestrutura local e em nuvem.</li>
         </ul>
       </div>
     </div>
 
     <div class="empresa">
-      <img src="unef.jpg" alt="Logo da Empresa 2">
+      <img src="unef.jpg" alt="Logo do Grupo Nobre">
       <div class="descricao">
         <h2>Grupo Nobre</h2>
-        <p>Assistente de T.I</p>
-        <p>Grupo de empresas na área de Ensino, Saúde e Esporte.</p>
+        <p><strong>Cargo:</strong> Assistente de T.I</p>
+        <p>Grupo com atuação nas áreas de Educação, Saúde e Esportes.</p>
         <p class="tempo">Agosto de 2021 – Abril de 2024</p>
         <ul>
-          <li>Atendimento e suporte técnico a usuários do sistema ERP, suporte HelpDesk e FieldService.</li>
-          <li>Criação de documentação.</li>
-          <li>Gerenciamento de infraestrutura física.</li>
+          <li>Suporte técnico a usuários de sistemas ERP e atendimento HelpDesk e Field Service.</li>
+          <li>Elaboração de documentação técnica.</li>
+          <li>Gerenciamento da infraestrutura tecnológica.</li>
         </ul>
       </div>
     </div>
 
     <div class="empresa">
-      <img src="inputec.jpg" alt="Logo da Empresa 3">
+      <img src="inputec.jpg" alt="Logo da Inputec">
       <div class="descricao">
         <h2>Inputec</h2>
-        <p>Assistente de T.I</p>
-        <p>Empresa de TI especializada em terceirização de serviços.</p>
+        <p><strong>Cargo:</strong> Assistente de T.I</p>
+        <p>Empresa especializada em terceirização de serviços de tecnologia da informação.</p>
         <p class="tempo">Abril de 2021 – Agosto de 2024</p>
         <ul>
-          <li>Atendimento e suporte técnico a usuários do sistema ERP, suporte HelpDesk e FieldService.</li>
-          <li>Criação de documentação.</li>
-          <li>Gerenciamento de infraestrutura física.</li>
+          <li>Atendimento técnico a usuários de sistemas ERP.</li>
+          <li>Suporte HelpDesk e visitas técnicas.</li>
+          <li>Documentação de processos e infraestrutura física.</li>
         </ul>
       </div>
     </div>
 
     <div class="empresa">
-      <img src="unirb.jpg" alt="Logo da Empresa 4">
+      <img src="unirb.jpg" alt="Logo da UNIRB">
       <div class="descricao">
         <h2>UNIRB - Centro Universitário</h2>
-        <p>Suporte de T.I</p>
-        <p>Instituição de ensino superior que oferece cursos presenciais e a distância.</p>
+        <p><strong>Cargo:</strong> Suporte de T.I</p>
+        <p>Instituição de ensino superior com cursos presenciais e a distância.</p>
         <p class="tempo">Agosto de 2020 – Abril de 2021</p>
         <ul>
-          <li>Atendimento e suporte técnico a usuários do sistema ERP, suporte HelpDesk e FieldService.</li>
-          <li>Criação de documentação.</li>
-          <li>Gerenciamento de infraestrutura física.</li>
+          <li>Atendimento técnico aos usuários de sistemas acadêmicos e administrativos.</li>
+          <li>Elaboração de documentação de suporte.</li>
+          <li>Manutenção da infraestrutura de tecnologia.</li>
         </ul>
       </div>
     </div>
 
     <div class="empresa">
-      <img src="yroshi.png" alt="Logo da Empresa 5">
+      <img src="yroshi.png" alt="Logo da Yroshy Informática">
       <div class="descricao">
         <h2>Yroshy Informática</h2>
-        <p>Técnico em Informática</p>
-        <p>Empresa de vendas e manutenção em equipamentos de informática.</p>
+        <p><strong>Cargo:</strong> Técnico em Informática</p>
+        <p>Empresa de vendas e manutenção de equipamentos de informática.</p>
         <p class="tempo">Agosto de 2014 – Fevereiro de 2020</p>
         <ul>
-          <li>Manutenção em equipamentos de informática.</li>
-          <li>Atendimento ao cliente.</li>
+          <li>Manutenção preventiva e corretiva em equipamentos de informática.</li>
+          <li>Atendimento ao cliente em loja física.</li>
         </ul>
       </div>
     </div>
-  </div>
 
     <div class="empresa">
-      <img src="barella.png" alt="Logo da Empresa 5">
+      <img src="barella.png" alt="Logo da Barella Informática">
       <div class="descricao">
         <h2>Barella Informática</h2>
-        <p>Técnico em Informática</p>
-        <p>Empresa de vendas e manutenção em equipamentos de informática.</p>
+        <p><strong>Cargo:</strong> Técnico em Informática</p>
+        <p>Empresa especializada em venda e manutenção de equipamentos e acessórios de informática.</p>
         <p class="tempo">Fevereiro de 2013 – Janeiro de 2014</p>
         <ul>
-          <li>Manutenção em equipamentos de informática.</li>
-          <li>Venda de equipamentos e acessórios.</li>
-          <li>Atendimento ao cliente.</li>
+          <li>Manutenção de equipamentos e suporte técnico.</li>
+          <li>Venda de produtos e atendimento ao público.</li>
         </ul>
       </div>
     </div>
-  </div>
 
     <div class="empresa">
-      <img src="asus.png" alt="Logo da Empresa 5">
+      <img src="asus.png" alt="Logo da Mega Asus Informática">
       <div class="descricao">
         <h2>Mega Asus Informática</h2>
-        <p>Jovem Aprendiz</p>
-        <p>Empresa de vendas e manutenção em equipamentos de informática.</p>
-        <p class="tempo">Janeiro de 2011 – Janeiro 2013</p>
+        <p><strong>Cargo:</strong> Jovem Aprendiz</p>
+        <p>Empresa de vendas e serviços de manutenção em informática.</p>
+        <p class="tempo">Janeiro de 2011 – Janeiro de 2013</p>
         <ul>
-          <li>Auxiliar de equipe técnica.</li>
-          <li>Auxiliar de estoque.</li>
-          <li>Conferente de compras.</li>
+          <li>Auxílio na manutenção de equipamentos.</li>
+          <li>Organização de estoque e conferência de mercadorias.</li>
+          <li>Apoio nas rotinas de compras.</li>
         </ul>
       </div>
     </div>
+
   </div>
 
-
-
-
-
-
-
-
-
-
-
-
   <script>
-    // Partículas simples animadas no fundo
     const canvas = document.getElementById('particles');
     const ctx = canvas.getContext('2d');
     const particles = [];
